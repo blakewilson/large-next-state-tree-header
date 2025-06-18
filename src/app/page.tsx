@@ -1,4 +1,4 @@
-import { FireServerAction, PopulateContextButton } from "./buttons";
+import { FireServerAction, PopulateContextButton, RedirectToOtherPage } from "./buttons";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       </div>
 
       <div>
-        <FireServerAction />
+        <RedirectToOtherPage />
       </div>
     </>
   )

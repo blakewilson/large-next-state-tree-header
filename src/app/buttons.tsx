@@ -1,7 +1,8 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { someAction } from "./action";
+import Link from "next/link";
 
 // Dummy context, just imagine this is some json state you are holding in a query param
 const context = {
@@ -94,6 +95,22 @@ export function PopulateContextButton() {
     }}>Populate context query param</button>
   )
 }
+
+export function RedirectToOtherPage() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const context = searchParams.get('context')
+
+  return (
+    <Link href={{
+      pathname: '/other-page',
+      query: {
+        context: context
+      }
+    }}>Redirect to other page</Link>
+  )
+}
+
 
 export function FireServerAction() {
   return (
