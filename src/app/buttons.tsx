@@ -86,28 +86,9 @@ const context = {
   }
 }
 
-export function PopulateContextButton() {
-  const router = useRouter()
-
-  return (
-    <button onClick={() => {
-      router.push(`/?context=${btoa(JSON.stringify(context))}`)
-    }}>Populate context query param</button>
-  )
-}
-
 export function RedirectToOtherPage() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const context = searchParams.get('context')
-
   return (
-    <Link href={{
-      pathname: '/other-page',
-      query: {
-        context: context
-      }
-    }}>Redirect to other page</Link>
+    <Link href={`/other-page?context=${btoa(JSON.stringify(context))}`}>Redirect to other page</Link>
   )
 }
 
